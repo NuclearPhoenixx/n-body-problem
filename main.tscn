@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/camera.gd" type="Script" id=1]
+[ext_resource path="res://src/spawn.gd" type="Script" id=2]
+[ext_resource path="res://obj.tscn" type="PackedScene" id=3]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 510, 300 )
+current = true
+smoothing_enabled = true
+smoothing_speed = 8.0
+script = ExtResource( 1 )
+
+[node name="Spacetime" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -7.0
+margin_top = -7.0
+margin_right = 7.0
+margin_bottom = 7.0
+script = ExtResource( 2 )
+
+[node name="Object" parent="Spacetime" instance=ExtResource( 3 )]
+editor/display_folded = true
+position = Vector2( 0, 0 )
+
+[editable path="Spacetime/Object"]
