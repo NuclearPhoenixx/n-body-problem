@@ -41,7 +41,7 @@ reach. This is ensured by time dilation which any fast object will
 experience according to you, the observer, resulting in an increasingly 
 slower movement and acceleration. However, it looks like that this alone 
 can lead to some unintended side effects because of the limited 
-resolution of floats.
+resolution of floats and time steps.
 
 You can also scale the 2D plane to any arbitrary number of meters per pixel.
 
