@@ -1,6 +1,7 @@
 extends Area2D
 
 onready var force_vector = get_node("ForceVector")
+onready var camera = get_tree().get_root().get_node("Control/Spacetime/Camera2D")
 
 # CONSTANTS AND INITIAL VALUES
 var G = 6.67408e-11 # gravitational constant
@@ -15,6 +16,8 @@ var radius = 10 # object radius
 func collision(area): # impact detection to prevent division by zero, heavy obj process before light ones
 	area.set_monitoring(false) # disable impact detection of deleted body
 	mass += area.mass # take all the mass
+	if camera.follow_node == area: # change fixed camera to the "winner" object
+		camera.follow_node = self
 	area.queue_free() # delete other lighter body
 
 func _draw(): # draw object as a custom circle
@@ -35,15 +38,20 @@ func grav_accel():
 		
 	return accel
 
-func get_time(d): # make the speed of light the absolute speed limit in this simulation
-	return d * sqrt(1 - pow( v.length() / 299792458, 2))
+func get_lorentz(): # make the speed of light the absolute speed limit in this simulation
+	return ( sqrt(1 - pow( v.length() / 299792458, 2)) )
 
 func _physics_process(delta):
-	position += v * get_time(delta) / scale_m # update position with given velocity and correct for scale
+	position += v * delta / scale_m #* get_lorentz() # update position with given velocity and correct for scale
 	update() # re-draw circle
 	
 	var a = grav_accel() # compute new acceleration vector
-	v += a * get_time(delta) # add new acceleration to the existing velocity vector
+	v += a * delta * get_lorentz() # add new acceleration to the existing velocity vector
 	
 	if fv_on: # draw resulting force vector
 		force_vector.set_point_position(1, a / a.length() * fvs)
+
+func _mouse_click(viewport, event, shape_idx): # upon selection the camera will follow this node
+	if event.is_action("ui_select"):
+		camera.follow_node = self
+		get_tree().set_input_as_handled()
