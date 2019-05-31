@@ -27,9 +27,10 @@ to let the camera follow it and display some stats. Right-click or ESC
 to leave follow mode. Camera speed can be adjusted in the camera script 
 itself.
 
-**Impacts** are for now handled so that the heavier body gets all the 
-mass from it's partners and then continues on unaffected. Conservation 
-of momentum will follow, only looking at elastic collisions though.
+**Impacts** are handled so that the heavier body gets all the mass from 
+it's collision partner(s). Conservation of momentum is also being 
+taken into account, but only looking at fully elastic collisions. This 
+seems like a solid solution for this kind of overall simulation.
 
 **Stats:** You can enable and disable the resulting force vectors for 
 each individual object. In the future you will be able to get more 
