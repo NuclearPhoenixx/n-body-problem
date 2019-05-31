@@ -14,11 +14,15 @@ var v = Vector2(0,0) # initial vector of velocity
 var radius = 10 # object radius
 
 func collision(area): # impact detection to prevent division by zero, heavy obj process before light ones
-	area.set_monitoring(false) # disable impact detection of deleted body
-	mass += area.mass # take all the mass
-	if camera.follow_node == area: # change fixed camera to the "winner" object
-		camera.follow_node = self
-	area.queue_free() # delete other lighter body
+	if area.mass < mass:
+		#area.set_monitoring(false) # disable impact detection of deleted body
+		mass += area.mass # take all the mass
+		if camera.follow_node == area: # change fixed camera to the "winner" object
+			camera.follow_node = self
+		area.queue_free() # delete other lighter body
+		# TODO: Proper physics collision, conservation of momentum.
+	elif area.mass == mass: # if masses are equal
+		pass # TODO: Spawn new object with correct velocity, mass and color, etc.
 
 func _draw(): # draw object as a custom circle
 	draw_circle(Vector2(0,0), radius, color)

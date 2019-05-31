@@ -30,7 +30,7 @@ func _process(delta):
 	else:
 		check_camera()
 
-func _input(event):
+func _unhandled_input(event):
 	if event.is_action_pressed("camera_zin"): # check scroll wheel, camera zoom in and out
 		get_tree().set_input_as_handled()
 		if zoom > max_zin:
@@ -44,3 +44,10 @@ func _input(event):
 	if event.is_action_pressed("ui_cancel"): # free fixed camera from node
 		get_tree().set_input_as_handled()
 		follow_node = null
+	
+	if event.is_action_pressed("pause"): # pause simulation
+		get_tree().set_input_as_handled()
+		if get_tree().paused:
+			get_tree().paused = false
+		else:
+			get_tree().paused = true

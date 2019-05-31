@@ -7,7 +7,6 @@ func spawn(pos, v, m, c, r): # spawn an object with given detail
 	inst.position = pos
 	inst.v = v
 	inst.mass = m
-	inst.set_priority(m)
 	inst.color = c
 	inst.radius = r
 	shape = CircleShape2D.new()
@@ -19,3 +18,15 @@ func spawn(pos, v, m, c, r): # spawn an object with given detail
 
 func _ready():
 	spawn(Vector2(0,100), Vector2(400000,0), 3.3e20, Color(0.1,0.2,0.1,1), 10)
+	
+	# SPAWN CHAOS!
+	var i = 0
+	var max_p = 1000
+	var min_p = -1000
+	var max_v = 400000
+	var min_v = -400000
+	
+	while i < 50: # spawn some random objects
+		i += 1
+		randomize()
+		spawn(Vector2(rand_range(min_p,max_p),rand_range(min_p,max_p)), Vector2(rand_range(min_v,max_v),rand_range(min_v,max_v)), 1e26, Color(0.3,0.6,0.3,1), 10)

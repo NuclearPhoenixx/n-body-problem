@@ -7,6 +7,7 @@
 [node name="Object" type="Area2D" groups=[
 "objects",
 ]]
+editor/display_folded = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -20,7 +21,8 @@ show_behind_parent = true
 points = PoolVector2Array( 0, 0, 0, 0 )
 width = 1.0
 default_color = Color( 1, 0.984314, 0, 1 )
+texture_mode = 774908979
 end_cap_mode = 2
 round_precision = 10
-[connection signal="area_entered" from="." to="." method="collision" flags=6]
+[connection signal="area_entered" from="." to="." method="collision"]
 [connection signal="input_event" from="." to="." method="_mouse_click"]
