@@ -3,13 +3,15 @@
 This simulation solves the n-body-problem numerically for theoretically 
 infinite objects in a 2D plane. This means computing the vector of 
 acceleration of each object resulting from the gravitational pull of the 
-other objects. The number of calculations per frame is given by the 
+other objects. The number of calculation cycles per frame is given by the 
 factor ``n * (n - 1)`` where ``n`` is the number of spawned objects.
 
 The resulting force on each object will be calculated from a combination 
 of all individual force vectors:
 
 ![newtons law of universal gravitation](https://wikimedia.org/api/rest_v1/media/math/render/svg/35e05bce060ddb6441ba83d482cd27a7f57e1998)
+
+Made with Godot Engine (no physics engine involved).
 
 ---
 
