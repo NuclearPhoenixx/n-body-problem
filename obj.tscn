@@ -7,7 +7,6 @@
 [node name="Object" type="Area2D" groups=[
 "objects",
 ]]
-editor/display_folded = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true

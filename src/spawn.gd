@@ -21,12 +21,12 @@ func _ready():
 	
 	# SPAWN CHAOS!
 	var i = 0
-	var max_p = 1000
-	var min_p = -1000
+	var max_p = 500
+	var min_p = -500
 	var max_v = 400000
 	var min_v = -400000
 	
-	while i < 50: # spawn some random objects
+	while i < 18: # spawn some random objects
 		i += 1
 		randomize()
 		spawn(Vector2(rand_range(min_p,max_p),rand_range(min_p,max_p)), Vector2(rand_range(min_v,max_v),rand_range(min_v,max_v)), 1e26, Color(0.3,0.6,0.3,1), 10)
