@@ -4,7 +4,7 @@ onready var camera = get_tree().get_root().get_node("Control/Spacetime/Camera2D"
 
 var mass_prec = 5 # mass precision in places
 
-func _physics_process(delta):
+func _process(delta):
 	var obj = camera.follow_node
 	
 	if typeof(obj) == 0: # if camera is fixed then show stats of that object
