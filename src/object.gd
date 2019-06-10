@@ -59,6 +59,6 @@ func _physics_process(delta):
 		force_vector.set_point_position(1, a / a.length() * fvs)
 
 func _mouse_click(viewport, event, shape_idx): # upon selection the camera will follow this node
-	if event.is_action("ui_select"):
+	if event.is_action_pressed("ui_select"):
 		camera.follow_node = self
 		get_tree().set_input_as_handled()
