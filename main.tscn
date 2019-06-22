@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/spawn.gd" type="Script" id=1]
 [ext_resource path="res://obj.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://src/gui/delete.gd" type="Script" id=7]
 [ext_resource path="res://src/gui/add_object.gd" type="Script" id=8]
 [ext_resource path="res://src/gui/pause_indicator.gd" type="Script" id=9]
+[ext_resource path="res://src/gui/system_energy.gd" type="Script" id=10]
 
 [sub_resource type="InputEventAction" id=1]
 action = "delete"
@@ -116,6 +117,19 @@ script = ExtResource( 9 )
 margin_right = 51.0
 margin_bottom = 14.0
 text = "PAUSED"
+
+[node name="CenterContainer" type="CenterContainer" parent="Interface"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -40.0
+margin_right = 40.0
+
+[node name="SystemEnergy" type="Label" parent="Interface/CenterContainer"]
+margin_left = 20.0
+margin_top = 13.0
+margin_right = 20.0
+margin_bottom = 27.0
+script = ExtResource( 10 )
 [connection signal="gui_input" from="Interface/Stats/VBoxContainer/HBoxContainer/Button" to="Interface/Stats/VBoxContainer/HBoxContainer/Button" method="_on_Button_gui_input"]
 [connection signal="pressed" from="Interface/Stats/VBoxContainer/HBoxContainer/Button" to="Interface/Stats/VBoxContainer/HBoxContainer/Button" method="_on_Button_pressed"]
 
