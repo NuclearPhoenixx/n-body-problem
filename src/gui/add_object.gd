@@ -15,3 +15,9 @@ func _unhandled_input(event):
 		
 		#spawn an object at the event location
 		main.spawn(position, Vector2(rand_range(-400000,400000),rand_range(-400000,400000)), 1e26, Color(r,g,b,1), 10)
+
+func _process(delta):
+	if pressed:
+		Input.set_default_cursor_shape(Input.CURSOR_CROSS)
+	else:
+		Input.set_default_cursor_shape(0)
