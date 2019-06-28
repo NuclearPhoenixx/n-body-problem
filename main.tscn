@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/spawn.gd" type="Script" id=1]
-[ext_resource path="res://scenes/sun.tscn" type="PackedScene" id=2]
+[ext_resource path="res://object.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/camera.gd" type="Script" id=3]
 [ext_resource path="res://src/gui/obj_counter.gd" type="Script" id=4]
 [ext_resource path="res://src/gui/speed.gd" type="Script" id=5]
@@ -11,11 +11,11 @@
 [ext_resource path="res://src/gui/pause_indicator.gd" type="Script" id=9]
 [ext_resource path="res://src/gui/system_energy.gd" type="Script" id=10]
 
-[sub_resource type="InputEventAction" id=2]
+[sub_resource type="InputEventAction" id=1]
 action = "delete"
 
-[sub_resource type="ShortCut" id=3]
-shortcut = SubResource( 2 )
+[sub_resource type="ShortCut" id=2]
+shortcut = SubResource( 1 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -86,7 +86,7 @@ margin_bottom = 74.0
 margin_right = 57.0
 margin_bottom = 20.0
 hint_tooltip = "Press the button to delete this object."
-shortcut = SubResource( 3 )
+shortcut = SubResource( 2 )
 text = "DELETE"
 script = ExtResource( 7 )
 

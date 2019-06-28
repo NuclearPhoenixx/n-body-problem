@@ -4,7 +4,7 @@
 
 [sub_resource type="CircleShape2D" id=1]
 
-[node name="Planet" type="Area2D" groups=[
+[node name="Object" type="Area2D" groups=[
 "objects",
 ]]
 pause_mode = 1
