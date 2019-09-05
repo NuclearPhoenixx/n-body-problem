@@ -27,4 +27,4 @@ func _ready():
 	while i < 18: # spawn some random objects
 		i += 1
 		randomize()
-		spawn(Vector2(rand_range(min_p,max_p),rand_range(min_p,max_p)), Vector2(rand_range(min_v,max_v),rand_range(min_v,max_v)), 1e26, Color(0.3,0.6,0.3,1), 10)
+		spawn(Vector2(rand_range(min_p,max_p),rand_range(min_p,max_p)), Vector2(rand_range(min_v,max_v),rand_range(min_v,max_v)), 1e26, Color(0.5,0.5,0.5,1), 10)

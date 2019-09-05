@@ -6,7 +6,7 @@ onready var camera = get_tree().get_root().get_node("Main/Spacetime/Camera")
 # CONSTANTS AND INITIAL VALUES
 var G = 6.67408e-11 # gravitational constant
 var fvs = 20 # force vector scale
-var fv_on = true # enable force vectors
+var fv_on = false # enable force vectors
 var color = Color(1,1,1,1) # object color
 var scale_m = 20000 # scale multiplier for one pixel in meter
 var mass = 1e28 # object mass
@@ -57,6 +57,8 @@ func _physics_process(delta):
 	
 	if fv_on: # draw resulting force vector
 		force_vector.set_point_position(1, a / a.length() * fvs)
+	else:
+		force_vector.set_point_position(1, Vector2())
 
 func _mouse_click(viewport, event, shape_idx): # upon selection the camera will follow this node
 	if event.is_action_pressed("ui_select"):
