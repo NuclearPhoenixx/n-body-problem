@@ -1,7 +1,7 @@
 extends Control
 
 func spawn(pos, v, m, c, r): # spawn an object with given detail
-	var inst = load("res://object.tscn").instance()
+	var inst = load("res://scenes/object.tscn").instance()
 	var shape
 	
 	inst.position = pos
