@@ -11,10 +11,11 @@ func _unhandled_input(event):
 		var r = rand_range(0,1)
 		var g = rand_range(0,1)
 		var b = rand_range(0,1)
-		var mass = rand_range(1e20,1e28)
+		var mass = rand_range(1e22,1e26)
+		var velocity = Vector2(rand_range(-400000,400000),rand_range(-400000,400000))
 		
 		#spawn an object at the event location
-		main.spawn(position, Vector2(rand_range(-400000,400000),rand_range(-400000,400000)), 1e26, Color(r,g,b,1), 10)
+		main.spawn(position, velocity, mass, Color(r,g,b,1), 10)
 
 func _process(delta):
 	if pressed:
