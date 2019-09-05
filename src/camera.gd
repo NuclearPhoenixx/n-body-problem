@@ -5,27 +5,25 @@ var zoom_depth = 0.1 # camera zoom depth
 var max_zin = Vector2(0.1, 0.1) # max zoom in
 var max_zout = Vector2(5, 5) # max zoom out
 
-func check_camera(): # camera movement, wasd or arrow keys
-	if Input.is_action_pressed("ui_down"):
-		position += Vector2(0,1) * frame_speed
-		get_tree().set_input_as_handled()
-	
-	if Input.is_action_pressed("ui_up"):
-		position += Vector2(0,-1) * frame_speed
-		get_tree().set_input_as_handled()
-	
-	if Input.is_action_pressed("ui_right"):
-		position += Vector2(1,0) * frame_speed
-		get_tree().set_input_as_handled()
-	
-	if Input.is_action_pressed("ui_left"):
-		position += Vector2(-1,0) * frame_speed
-		get_tree().set_input_as_handled()
-
 var follow_node = null
 
+func check_camera(): # camera movement, wasd or arrow keys
+	var goto = Vector2(0,0)
+	
+	if Input.is_action_pressed("ui_down"):
+		goto += Vector2(0,1)
+	if Input.is_action_pressed("ui_up"):
+		goto += Vector2(0,-1)
+	if Input.is_action_pressed("ui_right"):
+		goto += Vector2(1,0)
+	if Input.is_action_pressed("ui_left"):
+		goto += Vector2(-1,0)
+	
+	if goto.length() != 0:
+		position += goto * frame_speed
+
 func _process(delta):
-	if typeof(follow_node) != 0:
+	if follow_node != null:
 		set_position(follow_node.get_position())
 	else:
 		check_camera()
@@ -46,8 +44,6 @@ func _unhandled_input(event):
 		follow_node = null
 	
 	if event.is_action_pressed("pause"): # pause simulation
-		get_tree().set_input_as_handled()
-		if get_tree().paused:
-			get_tree().paused = false
-		else:
-			get_tree().paused = true
+		var tree = get_tree()
+		tree.set_input_as_handled()
+		tree.paused = !tree.paused

@@ -1,6 +1,6 @@
 extends Button
 
-onready var main = get_tree().get_root().get_node("Control/Spacetime")
+onready var main = get_tree().get_root().get_node("Main/Spacetime")
 
 func _unhandled_input(event):
 	if pressed && event.is_action_pressed("ui_select"): #if button is toggled and user clicks on the screen, spawn object
@@ -17,8 +17,8 @@ func _unhandled_input(event):
 		#spawn an object at the event location
 		main.spawn(position, velocity, mass, Color(r,g,b,1), 10)
 
-func _process(delta):
-	if pressed:
+func _toggled(button_pressed):
+	if button_pressed:
 		Input.set_default_cursor_shape(Input.CURSOR_CROSS)
 	else:
 		Input.set_default_cursor_shape(0)

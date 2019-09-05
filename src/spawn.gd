@@ -17,8 +17,6 @@ func spawn(pos, v, m, c, r): # spawn an object with given detail
 	return inst # return node
 
 func _ready():
-	spawn(Vector2(0,100), Vector2(400000,0), 3.3e20, Color(0.1,0.2,0.1,1), 10)
-	
 	# SPAWN CHAOS!
 	var i = 0
 	var max_p = 500

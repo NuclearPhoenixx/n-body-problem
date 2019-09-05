@@ -1,7 +1,7 @@
 extends Area2D
 
 onready var force_vector = get_node("ForceVector")
-onready var camera = get_tree().get_root().get_node("Control/Spacetime/Camera2D")
+onready var camera = get_tree().get_root().get_node("Main/Spacetime/Camera")
 
 # CONSTANTS AND INITIAL VALUES
 var G = 6.67408e-11 # gravitational constant

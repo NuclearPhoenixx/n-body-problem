@@ -1,13 +1,13 @@
 extends Button
 
-onready var camera = get_tree().get_root().get_node("Control/Spacetime/Camera2D")
+onready var camera = get_tree().get_root().get_node("Main/Spacetime/Camera")
 
 func _process(delta):
-	if typeof(camera.follow_node) == 0: # if camera is fixed then show delete button
-		self.hide()
+	if camera.follow_node == null: #if camera is fixed then show delete button
+		hide()
 	else:
-		self.show()
+		show()
 
-func _on_Button_pressed(): # delete the selected node and stop camera follow
+func _on_DeleteButton_pressed(): # delete the selected node and stop camera follow
 	camera.follow_node.queue_free()
 	camera.follow_node = null
