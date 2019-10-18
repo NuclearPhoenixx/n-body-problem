@@ -12,11 +12,13 @@ func _process(delta):
 		var energy = 0
 		
 		for o in get_tree().get_nodes_in_group("objects"):
-			energy += o.mass * c * sqrt( pow(c,2) + pow(o.v.dot(o.v) * lorentz(o.v), 2))
+			# kinetic and rest energy
+			energy += o.mass * c * sqrt(pow(c,2) + o.v.length_squared() * pow(lorentz(o.v), 2))
+			# gravitational potential
 			for a in get_tree().get_nodes_in_group("objects"):
 				if a != o:
-					var r = a.position - o.position
-					energy += G * a.mass * o.mass / r.length()
+					var r = ( a.position - o.position ) * o.scale_m
+					energy += - G * a.mass * o.mass / r.length()
 		
 		text = "Total System Energy = " + str(stepify(energy/1e40,1)) + " [ 1e40 J ]"
 	else:
