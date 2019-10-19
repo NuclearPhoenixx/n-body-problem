@@ -45,7 +45,7 @@ func grav_accel():
 	return accel
 
 func _physics_process(delta):
-	position += v * delta / scale_m #* get_lorentz() # update position with given velocity and correct for scale
+	position += v * delta / scale_m # update position with given velocity and correct for scale
 	update() # re-draw circle
 	
 	var a = grav_accel() # compute new acceleration vector
