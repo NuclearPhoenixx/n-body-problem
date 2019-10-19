@@ -34,7 +34,7 @@ color and random velocity.
 
 **Impacts** are handled so that the heavier body gets all the mass from 
 it's collision partner(s). Conservation of momentum is also being 
-taken into account, but only looking at fully elastic collisions. This 
+taken into account, but only looking at _perfectly inelastic collisions_. This 
 seems like a solid solution for this kind of overall simulation.
 
 **Stats:** You can enable and disable the resulting force vectors for 
@@ -42,13 +42,9 @@ each individual object in code. The top left corner shows the total number
 of objects in the world. Clicking on an object allows you to show
 any object's velocity and mass.
 
-The 2D plane is nearly infinitely big and the maximum speed in this 
-simulated universe should be light speed which no object is able to 
-reach. This is ensured by time dilation which any fast object will 
-experience according to you, the observer, resulting in an increasingly 
-slower movement and acceleration. However, it looks like that this alone 
-can lead to some unintended side effects because of the limited 
-resolution of floats and time steps. This needs to be further investigated
-and for the meantime you should not assume a top speed.
+The 2D plane is nearly infinitely big and there is _no_ maximum speed due to
+this being an all classical newtonian simulation. That means you _can_ launch
+your own objects at any speed, however, if you don't mess with that no
+object will get even close to travelling at light speed.
 
 You can also scale the 2D plane to any arbitrary number of meters per pixel. This needs to be done in code, though.
