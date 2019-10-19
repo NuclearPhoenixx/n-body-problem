@@ -31,8 +31,7 @@ func _draw(): # draw object as a custom circle
 	draw_circle(Vector2(0,0), radius, color)
 
 func get_new_accel(m, x): # compute acceleration vector based on newtons law of gravitation
-	var r = x - position
-	r *= scale_m
+	var r = (x - position) * scale_m
 	
 	return G * m * r / pow(r.length(), 3)
 
@@ -45,15 +44,12 @@ func grav_accel():
 		
 	return accel
 
-func get_lorentz(): # make the speed of light the absolute speed limit in this simulation
-	return ( sqrt(1 - pow( v.length() / 299792458, 2)) )
-
 func _physics_process(delta):
 	position += v * delta / scale_m #* get_lorentz() # update position with given velocity and correct for scale
 	update() # re-draw circle
 	
 	var a = grav_accel() # compute new acceleration vector
-	v += a * delta * get_lorentz() # add new acceleration to the existing velocity vector
+	v += a * delta # add new acceleration to the existing velocity vector
 	
 	if fv_on: # draw resulting force vector
 		force_vector.set_point_position(1, a / a.length() * fvs)
