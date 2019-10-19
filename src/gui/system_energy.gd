@@ -8,15 +8,14 @@ func _process(delta):
 		var energy = 0
 		
 		for o in get_tree().get_nodes_in_group("objects"):
-			energy = 0
 			# kinetic energy
 			energy += o.mass * o.v.length_squared() / 2
 			# gravitational potential
 			for a in get_tree().get_nodes_in_group("objects"):
-				if a != o:
+				if a != o: # Can be optimized to neglect energy if radius tends to infinity
 					var r = ( a.position - o.position ) * o.scale_m
 					energy += - G * a.mass * o.mass / r.length()
 		
-		text = "Total Mechanical Energy = " + str(energy) #str(stepify(energy/1e40,1)) + " [ 1e40 J ]"
+		text = "Total Mechanical Energy = " + str(stepify(energy/1e30,1)) + "e30 [ J ]"
 	#else:
 	#	hide()

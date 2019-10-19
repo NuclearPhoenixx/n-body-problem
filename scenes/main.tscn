@@ -88,6 +88,7 @@ text = "DELETE"
 script = ExtResource( 7 )
 
 [node name="Control" type="VBoxContainer" parent="Interface"]
+editor/display_folded = true
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -167.0

@@ -13,4 +13,4 @@ func _process(delta):
 		show()
 		var mass = obj.mass # get the mass in powers of ten
 		var i = String(mass).length() - 1
-		set_text("Mass: " + String(stepify(mass / pow(10, i), mass_prec)) + "e" + String(i) + " [kg]")
+		set_text("Mass: " + String(stepify(mass / pow(10, i), mass_prec)) + "e" + String(i) + " [ kg ]")
