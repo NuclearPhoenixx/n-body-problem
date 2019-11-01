@@ -40,7 +40,7 @@ seems like a solid solution for this kind of overall simulation.
 **Stats:** You can enable and disable the resulting force vectors for 
 each individual object in code. The top left corner shows the total number
 of objects in the world. Clicking on an object allows you to show
-any object's velocity and mass.
+any object's velocity, mass and it's current/past orbit in fixed space.
 
 The 2D plane is nearly infinitely big and there is _no_ maximum speed due to
 this being an all classical newtonian simulation. That means you _can_ launch
