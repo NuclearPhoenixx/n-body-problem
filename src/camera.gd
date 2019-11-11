@@ -7,13 +7,11 @@ var max_zout = Vector2(5, 5) # max zoom out
 
 var follow_node = null setget new_node
 
-var orbit_points = PoolVector2Array()
-var max_orbit_length = 400 #max number of points to draw on orbit
-var min_step_length = 2 #min number of pixels moved for new orbit point
+signal reset #reset camera
 
 func new_node(node):
 	follow_node = node
-	orbit_points.resize(0)
+	emit_signal("reset")
 
 func check_camera(): # camera movement, wasd or arrow keys
 	var goto = Vector2(0,0)
@@ -33,14 +31,8 @@ func check_camera(): # camera movement, wasd or arrow keys
 func _process(delta):
 	if follow_node != null:
 		set_position(follow_node.get_position())
-		if orbit_points.size() == 0 or (position - orbit_points[orbit_points.size()-1]).length() >= min_step_length:
-			orbit_points.append(position)
-			if orbit_points.size() > max_orbit_length:
-				orbit_points.remove(0)
 	else:
 		check_camera()
-		
-	print(orbit_points.size())
 
 func _unhandled_input(event):
 	if event.is_action_pressed("camera_zin"): # check scroll wheel, camera zoom in and out

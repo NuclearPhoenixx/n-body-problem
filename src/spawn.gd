@@ -30,14 +30,3 @@ func _ready():
 		spawn(Vector2(rand_range(min_p,max_p),rand_range(min_p,max_p)), Vector2(rand_range(min_v,max_v),rand_range(min_v,max_v)), 1e26, Color(0.5,0.5,0.5,1), 10)
 
 onready var camera = get_node("Camera")
-var draw = true
-
-func _on_OrbitToggle_toggled(button_pressed): #toggle for drawing orbits
-	draw = button_pressed
-
-func _draw(): #draw orbit path
-	if camera.orbit_points.size() >= 2 and draw:
-		draw_polyline(camera.orbit_points, Color.yellow, 1.1, true) #buggy with camera zoom?
-
-func _process(delta):
-	update()
