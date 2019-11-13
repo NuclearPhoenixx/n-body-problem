@@ -1,6 +1,6 @@
 extends Camera2D
 
-var frame_speed = 10 # camera speed in px/frame
+var frame_speed = 15 # camera speed in px/frame
 var zoom_depth = 0.1 # camera zoom depth
 var max_zin = Vector2(0.1, 0.1) # max zoom in
 var max_zout = Vector2(5, 5) # max zoom out
