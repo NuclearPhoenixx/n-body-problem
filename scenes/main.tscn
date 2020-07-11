@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://src/spawn.gd" type="Script" id=1]
 [ext_resource path="res://src/orbit_line.gd" type="Script" id=2]
@@ -12,7 +12,6 @@
 [ext_resource path="res://src/gui/fv_toggle.gd" type="Script" id=10]
 [ext_resource path="res://src/gui/time_scale.gd" type="Script" id=11]
 [ext_resource path="res://src/gui/pause_indicator.gd" type="Script" id=12]
-[ext_resource path="res://src/gui/system_energy.gd" type="Script" id=13]
 
 [sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 0.266667, 1, 0, 0, 0, 1, 0.156863, 1 )
@@ -160,12 +159,6 @@ margin_bottom = 132.0
 text = "PAUSED"
 align = 1
 script = ExtResource( 12 )
-
-[node name="SystemEnergy" type="Label" parent="Interface"]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_top = -14.0
-script = ExtResource( 13 )
 [connection signal="reset" from="Spacetime/Camera" to="Spacetime/OrbitLine" method="_on_Camera_reset"]
 [connection signal="pressed" from="Interface/Stats/HBoxContainer/DeleteButton" to="Interface/Stats/HBoxContainer/DeleteButton" method="_on_DeleteButton_pressed"]
 [connection signal="toggled" from="Interface/Control/OrbitToggle" to="Spacetime/OrbitLine" method="_on_OrbitToggle_toggled"]
