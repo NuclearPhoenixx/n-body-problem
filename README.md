@@ -13,6 +13,8 @@ of all individual force vectors:
 
 Made with Godot Engine (no physics engine involved).
 
+**This app is also available as a progressive web app. You can install it in Chrome and other Chromium-based browsers!**
+
 ---
 
 You can spawn as many objects as you like with arbitrary parameters such 
