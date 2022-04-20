@@ -1,5 +1,7 @@
 # n-body-problem
 
+**This app is also available as a progressive web app. You can install it in Chrome and other Chromium-based browsers!**
+
 This simulation solves the n-body-problem numerically for theoretically 
 infinite objects in a 2D plane. This means computing the vector of 
 acceleration of each object resulting from the gravitational pull of the 
@@ -12,8 +14,6 @@ of all individual force vectors:
 ![newtons law of universal gravitation](https://wikimedia.org/api/rest_v1/media/math/render/svg/35e05bce060ddb6441ba83d482cd27a7f57e1998)
 
 Made with Godot Engine (no physics engine involved).
-
-**This app is also available as a progressive web app. You can install it in Chrome and other Chromium-based browsers!**
 
 ---
 
