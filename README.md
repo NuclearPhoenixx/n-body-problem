@@ -13,7 +13,7 @@ of all individual force vectors:
 
 ![newtons law of universal gravitation](https://wikimedia.org/api/rest_v1/media/math/render/svg/35e05bce060ddb6441ba83d482cd27a7f57e1998)
 
-Made with Godot Engine (no physics engine involved).
+Made with Godot Engine 3.x (no physics engine involved).
 
 ---
 

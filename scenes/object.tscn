@@ -4,9 +4,7 @@
 
 [sub_resource type="CircleShape2D" id=1]
 
-[node name="Object" type="Area2D" groups=[
-"objects",
-]]
+[node name="Object" type="Area2D" groups=["objects"]]
 pause_mode = 1
 script = ExtResource( 1 )
 __meta__ = {
@@ -23,5 +21,6 @@ width = 1.0
 default_color = Color( 1, 0.984314, 0, 1 )
 end_cap_mode = 2
 round_precision = 10
+
 [connection signal="area_entered" from="." to="." method="collision"]
 [connection signal="input_event" from="." to="." method="_mouse_click"]
